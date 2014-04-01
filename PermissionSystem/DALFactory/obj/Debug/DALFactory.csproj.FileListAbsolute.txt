@@ -1,0 +1,10 @@
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\obj\Debug\DALFactory.csprojResolveAssemblyReference.cache
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\DALFactory.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\DALFactory.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\IDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\maticsoft.common.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\Model.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\IDAL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\bin\Debug\Model.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\obj\Debug\DALFactory.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\DALFactory\obj\Debug\DALFactory.pdb

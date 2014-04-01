@@ -1,0 +1,7 @@
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\bin\Debug\IDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\bin\Debug\IDAL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\bin\Debug\Model.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\bin\Debug\Model.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\obj\Debug\IDAL.csprojResolveAssemblyReference.cache
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\obj\Debug\IDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\IDAL\obj\Debug\IDAL.pdb

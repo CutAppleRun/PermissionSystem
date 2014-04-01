@@ -1,0 +1,12 @@
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\BLL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\BLL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\obj\Debug\BLL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\obj\Debug\BLL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\DALFactory.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\IDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\maticsoft.common.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\Model.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\DALFactory.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\IDAL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\bin\Debug\Model.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache

@@ -1,0 +1,190 @@
+﻿@model PermissionSystem.Model.Permission
+@{
+    ViewBag.Title = "游离权限";
+}
+
+<table id="dp"></table>
+
+<!--设置添加的弹出层-->
+<div id="EditPermissionDialog" class="easyui-dialog" style="width: 280px; height: 220px; padding: 10px 20px" closed="true" data-options="modal:true">
+    @using (Html.BeginForm("edit", "permission", FormMethod.Post, new { ID = "editPermissionForm" }))
+    {
+        <table>
+            <tr>
+                <td><label for="a_permission_id">id</label></td>
+                <td>@Html.TextBoxFor(m => m.permission_id, new { ReadOnly = true, id="permission_id" })</td>
+            </tr>
+            <tr>
+                <td><label for="a_partent_permission_id">父id</label></td>
+                <td>@Html.TextBoxFor(m => m.partent_permission_id, new { id="partent_permission_id" })</td>
+            </tr>
+            <tr>
+                <td><label for="a_permission_name">权限名称</label></td>
+                <td>@Html.TextBoxFor(m => m.permission_name, new { id="permission_name" })</td>
+            </tr>
+            <tr>
+                <td><label for="a_description">权限描述</label></td>
+                <td>@Html.TextBoxFor(m => m.description, new { id="description" })</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="提交" id="editSubmit" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        $.extend($.messager.defaults, {
+            ok: "确定",
+            cancel: "取消"
+        });
+
+
+
+        // 初始化树形表格
+        $('#dp').treegrid({
+            title: '权限列表',
+            height: 500,
+            nowrap: true,       // 不换行
+            rownumbers: true,   // 显示行号
+            animate: false,     // 动画效果
+            collapsible: false,// 不可折叠
+            url: 'Permission/GetDissociatePermissions',
+            idField: 'Id',
+            treeField: 'Id',
+            // 冻结列
+            frozenColumns: [[
+                {
+                    title: 'ID',
+                    field: 'Id',
+                    formatter: function (value) {
+                        return '<span style="color:red">' + value + '</span>';
+                    }
+                }
+            ]],
+            // 普通列
+            columns: [[
+                { field: 'name', title: '权限名称' },
+                { field: 'description', title: '描述', width: 500 }
+            ]],
+            toolbar: [{
+                text: '修改',
+                iconCls: 'icon-edit',
+                handler: function () {
+                    // 必须选择一行来修改
+                    var selectRow = $('#dp').datagrid('getSelected');
+                    if (selectRow == null) {
+                        $.messager.alert('出错了~~', '未选择修改的权限', 'error');
+                        return false;
+                    }
+                    $("#EditPermissionDialog").dialog("open");
+                    // 初始化值
+                    $('#editPermissionForm').form('load', {
+                        permission_id: selectRow.Id,
+                        partent_permission_id: selectRow._parentId == undefined ? 0 : selectRow._parentId,
+                        permission_name: selectRow.name,
+                        description: selectRow.description
+                    });
+                }
+            }, '-', {
+                text: '刷新',
+                iconCls: 'icon-reload',
+                handler: function () {
+                    $('#dp').treegrid("reload");
+                }
+            }, '-', {
+                text: '删除',
+                iconCls: 'icon-remove',
+                handler: function () {
+                    // 必须选择一行来修改
+                    var selectRow = $('#dp').datagrid('getSelected');
+                    if (selectRow == null) {
+                        $.messager.alert('出错了~~', '未选择修改的权限', 'error');
+                        return false;
+                    }
+                    if (selectRow.children != undefined || selectRow.children != null) {
+                        $.messager.alert('出错了~~', '不能删除拥有子权限的权限', 'error');
+                        return false;
+                    }
+                    $.messager.confirm("确认删除？", "删除操作不可回滚，请确认？", function(r) {
+                        if(r) {
+                            removePermission(selectRow.Id);
+                        }
+                    });
+                    
+                }
+            }]
+        });
+
+        // 刷新标签页
+        function reloadCurrentTab() {
+            var currentTab = $('#div_tabs').tabs('getSelected');
+            var currentHref = currentTab.panel('options').href;
+            $('#div_tabs').tabs("update", {
+                tab: currentTab,
+                options: {
+                    href: currentHref
+                }
+            });
+        }
+
+        // 删除权限
+        function removePermission(id) {
+            $.ajax({
+                type: "POST",
+                url: "permission/remove/" + id,
+                success: function (data, textStatus, jqXHR) {
+                    $.messager.show({
+                        title: "提交成功",
+                        msg: "权限已经删除",
+                        timeout: 3000,
+                        showType: 'slide'
+                    });
+                    $('#dp').treegrid("reload");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $.messager.alert('出错了~~', '提交到服务器出错，请重试！！', 'error');
+                    console.info(jqXHR);
+                }
+            });
+        }
+
+
+
+        /* 修改权限 */
+        $('#a_permission_name').validatebox({
+            required: true,
+            missingMessage: "权限名称为必须项",
+            invalidMessage: "输入的值无效，请重新输入"
+        });
+        $('#a_partent_permission_id').numberbox({
+            min: 0,
+            required: true,
+            missingMessage: "父ID为必须项",
+            invalidMessage: "输入的值无效，请重新输入"
+        });
+        // 提交添加表单
+        $('#editPermissionForm').form({
+            onSubmit: function (data) {
+                return $('#editPermissionForm').form("validate");
+            },
+            success: function (data) {
+                $("#EditPermissionDialog").dialog("close");
+                $.messager.show({
+                    title: '成功',
+                    msg: '权限添加成功，请等待系统刷新',
+                    timeout: 3000,
+                    showType: 'slide'
+                });
+                $('#dp').treegrid("reload");
+            }
+        });
+        
+    });
+</script>

@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/base.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/EasyUI/themes/" + ViewBag.Themes + "/easyui.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Scripts/EasyUI/themes/icon.css")">
+    <script type="text/javascript" src="@Url.Content("~/Scripts/EasyUI/jquery.min.js")"></script> 
+    <script type="text/javascript" src="@Url.Content("~/Scripts/EasyUI/jquery.easyui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/MyMethod/MyMethod.js")"></script>
+</head>
+<body class="easyui-layout">
+
+    @* 头部 *@
+    <div region="north" border="true" style="overflow: hidden; height: 30px; background: url(@Url.Content("~/Scripts/EasyUI/images/layout-browser-hd-bg.gif")) #7f99be repeat-x center 50%; line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
+        <span style="float:right; padding-right:20px;" class="head">
+            欢迎<b>@ViewBag.UserName</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" goto="permission/index" class="targetTab easyui-linkbutton" title="修改密码" data-options="plain:true" style="color:white;" id="editpass">修改密码</a>
+            <a href="#" class="easyui-linkbutton" data-options="plain:true" style="color:white;" id="loginOut">安全退出</a>
+        </span>
+        <span style="padding-left:10px; font-size: 16px; ">
+            <img src="@Url.Content("~/Scripts/EasyUI/images/blocks.gif")" width="20" height="20" align="absmiddle" />
+            权限系统
+        </span>
+    </div>
+
+
+
+    @* 
+        导航菜单：
+        1. 每一个<li>标签下面的goto代表跳转到的URL，这个URL是一个【标识】，一个【标识】只能打开【一个】Tab页
+        2. 添加 class='targetTab' 表示让这个链接在Tab页中打开
+        3. title表示打开后这个Tab页的标题，【标题可以重复，但是URL不能相同】
+        4. <em>标签表示第几项，<span>标签表示未读消息
+        完整的链接表示：
+        <ul class="sub-menu">
+            <li><a href="#" goto="permission/index?key=1" class="targetTab" title="标题1"> <em>第1项</em> 标题1 <span>12</span> </a></li>
+            <li><a href="#" goto="permission/index?key=2" class="targetTab" title="标题2"> <em>第2项</em> 标题2 <span>19</span> </a></li>
+            <li><a href="#" goto="permission/index?key=3" class="targetTab" title="标题3"> <em>第3项</em> 标题3 <span>27</span> </a></li>
+            <li><a href="#" goto="permission/index?key=4" class="targetTab" title="标题4"> <em>第4项</em> 标题4 <span>12</span> </a></li>
+            <li><a href="#" goto="permission/index?key=5" class="targetTab" title="标题5"> <em>第5项</em> 标题5 <span>19</span> </a></li>
+        </ul>
+    *@
+    <div region="west" split="true" title="导航菜单" style="width:200px;">
+        <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/menu.css")">
+        <div class="easyui-accordion" data-options="fit:true, border:false">
+            <div title="组织权限管理">
+                <ul class="sub-menu">
+                    <li><a href="#" goto="permission/index?key=1" class="targetTab" title="组管理"><em>01</em>组管理</a></li>
+                    <li><a href="#" goto="permission/index?key=2" class="targetTab" title="包含用户"><em>02</em>包含用户</a></li>
+                    <li><a href="#" goto="permission/index?key=3" class="targetTab" title="所属角色"><em>03</em>所属角色</a></li>
+                    <li><a href="#" goto="permission/index?key=4" class="targetTab" title="组权限"><em>04</em>组权限</a></li>
+                    <li><a href="#" goto="permission/index?key=5" class="targetTab" title="总权限"><em>05</em>总权限</a></li>
+                </ul>
+            </div> 
+            <div title="角色权限管理">
+                <ul class="sub-menu">
+                    <li><a href="#" goto="permission/index?key=6" class="targetTab" title="角色管理"><em>01</em>角色管理</a></li>
+                    <li><a href="#" goto="permission/index?key=7" class="targetTab" title="包含用户"><em>02</em>包含用户</a></li>
+                    <li><a href="#" goto="permission/index?key=8" class="targetTab" title="包含组"><em>03</em>包含组</a></li>
+                    <li><a href="#" goto="permission/index?key=9" class="targetTab" title="角色权限"><em>04</em>角色权限</a></li>
+                </ul>
+            </div> 
+            <div title="用户权限管理">
+                <ul class="sub-menu">
+                    <li><a href="#" goto="permission/index?key=10" class="targetTab" title="用户管理"><em>01</em>用户管理</a></li>
+                    <li><a href="#" goto="permission/index?key=11" class="targetTab" title="所属角色"><em>02</em>所属角色</a></li>
+                    <li><a href="#" goto="permission/index?key=12" class="targetTab" title="所属组"><em>03</em>所属组</a></li>
+                    <li><a href="#" goto="permission/index?key=13" class="targetTab" title="用户权限"><em>04</em>用户权限</a></li>
+                    <li><a href="#" goto="permission/index?key=14" class="targetTab" title="总权限"><em>05</em>总权限</a></li>
+                    <li><a href="#" goto="permission/index?key=15" class="targetTab" title="组织管理"><em>06</em>组织管理</a></li>
+                </ul>
+            </div> 
+            <div title="基表管理">
+                <ul class="sub-menu">
+                    <li><a href="#" goto="permission/index" class="targetTab" title="权限管理"><em>01</em>权限管理</a></li>
+                    <li><a href="#" goto="permission/DissociatePermissions" class="targetTab" title="游离权限"><em>02</em>游离权限</a></li>
+                </ul>
+            </div>
+            <div title="系统管理">
+                <ul class="sub-menu">
+                    <li><a href="#" goto="permission/index?key=17" class="targetTab" title="日志管理"><em>01</em>日志管理</a></li>
+                    <li><a href="#" goto="permission/index?key=18" class="targetTab" title="系统设置"><em>02</em>系统设置</a></li>
+                    <li><a href="#" goto="permission/index?key=19" class="targetTab" title="关于系统"><em>03</em>关于系统</a></li>
+                </ul>
+            </div> 
+        </div>
+    </div>
+
+    @* 主内容 *@
+    <div region="center">
+        <div id="div_tabs">
+            <div title="欢迎使用">
+                @RenderBody()
+            </div>
+		</div>
+    </div>
+    
+    @* 进度条 *@
+    <div id="loading-page"
+        data-options="modal:true,collapsible:false,minimizable:false,maximizable:false,closable:false,resizable:false" 
+        title="数据加载中,请稍后......" style="width:363px; height:60px; overflow:hidden; padding:0;">
+        <div id="progressbar" style="width:286px;float:left; margin:1px;"></div>
+        <a href="#" id="cancle-loading" class="easyui-linkbutton">取消</a>
+    </div>
+    
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        // 创建Tab页
+        var $div_tabs = $('#div_tabs').tabs({
+            border: false,
+            fit: true
+        });
+        // 创建进度条
+        $('#progressbar').progressbar({ text: '' });
+        // 定时器对象
+        var loop;
+        // 创建loading窗体
+        // 存放Tab页的容器
+        var tabsList = new List();
+
+        // 添加Tab页的方法
+        function addTab(title, href) {
+            // 如果这个链接存在Tab页上，则选择这个标签
+            if (tabsList.exists(href)) {
+                $('#div_tabs').tabs("select", tabsList.get(href));
+            }
+                // 否则新建立一个标签页
+            else {
+                tabsList.add(href);
+                $('#div_tabs').tabs('add', {
+                    title: title,
+                    href: href,
+                    closable: true,
+                    // 加载完成事件
+                    onLoad: function () {
+                        // 结束进度条
+                        $('#progressbar').progressbar('setValue', 100);
+                        clearInterval(loop);
+                        $('#loading-page').window('close');
+                    },
+                    // 开始加载事件
+                    onBeforeLoad: function () {
+                        // 启动精度条的循环事件
+                        $('#progressbar').progressbar('setValue', 1);
+                        loop = setInterval("var value = $('#progressbar').progressbar('getValue'); if(value == 100) $('#progressbar').progressbar('setValue', 0); else $('#progressbar').progressbar('setValue', value + 20);", 200);
+                        $('#loading-page').window();
+                    },
+                    // 销毁这个Tab页时触发
+                    onDestroy: function () {
+                        tabsList.remove(href);
+                    },
+                    tools: [{
+                        // 刷新标签
+                        iconCls: 'icon-mini-refresh',
+                        handler: function () {
+                            // 获取当前使用的标签的Tab对象和href属性
+                            var currentTab = $('#div_tabs').tabs('getSelected');
+                            var currentHref = currentTab.panel('options').href;
+                            // 更新指定的标签
+                            $('#div_tabs').tabs("update", {
+                                tab: currentTab,
+                                options: {
+                                    href: currentHref
+                                }
+                            });
+                        }
+                    }]
+                });
+            }
+
+        }
+
+
+
+        // 设置需要添加tab页的标签：class为targetTab的
+        $(".targetTab").each(function () {
+            $(this).click(function () {
+                addTab($(this).attr("title"), $(this).attr("goto"));
+                return false;
+            });
+        });
+        // 取消loading效果
+        $("#cancle-loading").click(function () {
+            clearInterval(loop);
+            $('#loading-page').window('close');
+            var currentTab = $('#div_tabs').tabs('getSelected');
+            $("#div_tabs").tabs("close", currentTab.panel('options').title);
+            return false;
+        });
+    });;
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\obj\Debug\PermissionSystem.SQLServerDAL.csprojResolveAssemblyReference.cache
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\bin\Debug\PermissionSystem.SQLServerDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\bin\Debug\PermissionSystem.SQLServerDAL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\bin\Debug\IDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\bin\Debug\Model.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\bin\Debug\IDAL.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\bin\Debug\Model.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\obj\Debug\PermissionSystem.SQLServerDAL.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\PermissionSystem.SQLServerDAL\obj\Debug\PermissionSystem.SQLServerDAL.pdb

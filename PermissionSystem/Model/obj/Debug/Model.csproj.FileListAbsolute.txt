@@ -1,0 +1,4 @@
+C:\Users\xiexiaofan\Desktop\PermissionSystem\Model\bin\Debug\Model.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\Model\bin\Debug\Model.pdb
+C:\Users\xiexiaofan\Desktop\PermissionSystem\Model\obj\Debug\Model.dll
+C:\Users\xiexiaofan\Desktop\PermissionSystem\Model\obj\Debug\Model.pdb
